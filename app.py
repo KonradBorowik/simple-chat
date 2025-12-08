@@ -1,8 +1,7 @@
-from flask import Flask, request
+from flask import Flask, render_template, request
 from flask_cors import CORS
 import json
-from transformers import AutoModelForSeq2SeqLM
-from transformers import AutoTokenizer
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
 
 model_name = "facebook/blenderbot-400M-distill"
@@ -13,9 +12,9 @@ conversation_history = []
 app = Flask(__name__)
 CORS(app)
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def home():
-    return "Home page"
+    return render_template("index.html")
 
 
 @app.route("/chatbot", methods=["POST"])
@@ -34,9 +33,9 @@ def handle_prompt():
 
     conversation_history.append(input_text)
     conversation_history.append(response)
-
+    print(response)
     return response
 
 
-if __name__ == "__main_":
+if __name__ == "__main__":
     app.run()
