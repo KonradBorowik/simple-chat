@@ -1,2 +1,4 @@
-transformers==4.30.2
-torch
+transformers==4.38.2
+torch==2.2.1
+flask
+flask_cors
