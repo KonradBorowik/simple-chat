@@ -25,9 +25,9 @@ def handle_prompt():
 
     history = "\n".join(conversation_history)
 
-    inputs = tokenizer.encode_plus(history, input_text, return_tesnsors="pt")
+    inputs = tokenizer.encode_plus(history, input_text, return_tensors="pt")
 
-    outputs = model.generate(**inputs, max_lenght=60)
+    outputs = model.generate(**inputs, max_length=60)
 
     response = tokenizer.decode(outputs[0], skip_special_tokens=True)
 

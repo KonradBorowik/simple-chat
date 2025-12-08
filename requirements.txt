@@ -1,4 +1,7 @@
-transformers==4.38.2
-torch==2.2.1
 flask
 flask_cors
+numpy<2
+torch
+torchvision
+torchaudio
+transformers==4.*
